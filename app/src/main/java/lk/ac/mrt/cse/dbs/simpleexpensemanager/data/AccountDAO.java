@@ -18,6 +18,7 @@ package lk.ac.mrt.cse.dbs.simpleexpensemanager.data;
 
 import java.util.List;
 
+import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.exception.InsufficientBalanceException;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.exception.InvalidAccountException;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.Account;
 import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
@@ -26,7 +27,7 @@ import lk.ac.mrt.cse.dbs.simpleexpensemanager.data.model.ExpenseType;
  * AccountDAO interface can be used to access the account details, including listing, adding, updating, removing
  * accounts and updating account balance.
  */
-public interface AccountDAO {
+public interface AccountDAO{
 
     /***
      * Get a list of account numbers.
@@ -78,6 +79,6 @@ public interface AccountDAO {
      * @param amount      - amount involved
      * @throws InvalidAccountException - if the account number is invalid
      */
-    public void updateBalance(String accountNo, ExpenseType expenseType, double amount) throws InvalidAccountException;
+    public void updateBalance(String accountNo, ExpenseType expenseType, double amount) throws InvalidAccountException, InsufficientBalanceException;
 
 }
